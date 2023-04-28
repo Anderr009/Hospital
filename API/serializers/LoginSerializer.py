@@ -4,4 +4,4 @@ from API.models import Empleado
 class LoginSerializer(serializers.ModelSerializer):
     class Meta:
         model = Empleado
-        fields=['id','username','passw']
+        fields=['id','username','passw','fk_cargo']
