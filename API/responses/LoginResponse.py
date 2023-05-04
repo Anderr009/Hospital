@@ -9,10 +9,10 @@ from API.serializers.LoginSerializer import LoginSerializer
 def LoginBasic(request,usern,passw):
     if request.method == 'GET':
         try:
-            emp = Empleado.objects.get(username=usern)
+            emp = Empleado.objects.select_related('fk_cargo').get(username=usern)
         except ObjectDoesNotExist:
             return Response(False,status=status.HTTP_404_NOT_FOUND)
         if passw != emp.passw:
             return Response(False)
         serializer = LoginSerializer(emp)
-        return Response(serializer.data)
+        return Response(serializer.data,status=status.HTTP_200_OK)
