@@ -10,4 +10,4 @@ class LoginSerializer(serializers.ModelSerializer):
     cargo = serializers.CharField(source='fk_cargo.nombre',read_only=True)
     class Meta:
         model = Empleado
-        fields=['id','username','passw','cargo']
+        fields=['id','username','passw','cargo','niv_user']

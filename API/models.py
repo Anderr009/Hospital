@@ -19,8 +19,8 @@ class Cargo(models.Model):
 
 class Cliente(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
-    cedula = models.CharField(db_column='CEDULA', unique=True, max_length=11, db_collation='Modern_Spanish_CI_AS', blank=True, null=True)  # Field name made lowercase.
-    pasaporte = models.CharField(db_column='PASAPORTE', unique=True, max_length=10, db_collation='Modern_Spanish_CI_AS', blank=True, null=True)  # Field name made lowercase.
+    cedula = models.CharField(db_column='CEDULA', max_length=11, db_collation='Modern_Spanish_CI_AS', blank=True, null=True)  # Field name made lowercase.
+    pasaporte = models.CharField(db_column='PASAPORTE', max_length=10, db_collation='Modern_Spanish_CI_AS', blank=True, null=True)  # Field name made lowercase.
     nombre1 = models.CharField(db_column='NOMBRE1', max_length=25, db_collation='Modern_Spanish_CI_AS', blank=True, null=True)  # Field name made lowercase.
     nombre2 = models.CharField(db_column='NOMBRE2', max_length=25, db_collation='Modern_Spanish_CI_AS', blank=True, null=True)  # Field name made lowercase.
     apellido1 = models.CharField(db_column='APELLIDO1', max_length=25, db_collation='Modern_Spanish_CI_AS', blank=True, null=True)  # Field name made lowercase.
@@ -43,6 +43,7 @@ class Empleado(models.Model):
     apellido2 = models.CharField(db_column='APELLIDO2', max_length=25, db_collation='Modern_Spanish_CI_AS', blank=True, null=True)  # Field name made lowercase.
     username = models.CharField(db_column='USERNAME', max_length=20, db_collation='Modern_Spanish_CI_AS', blank=True, null=True)  # Field name made lowercase.
     passw = models.CharField(db_column='PASSW', max_length=18, db_collation='Modern_Spanish_CI_AS', blank=True, null=True)  # Field name made lowercase.
+    niv_user = models.IntegerField(db_column='NIV_USER', blank=True, null=True)  # Field name made lowercase.
     fk_hospital = models.ForeignKey('Hospital', models.DO_NOTHING, db_column='FK_HOSPITAL', blank=True, null=True)  # Field name made lowercase.
     fk_cargo = models.ForeignKey(Cargo, models.DO_NOTHING, db_column='FK_CARGO', blank=True, null=True)  # Field name made lowercase.
 
